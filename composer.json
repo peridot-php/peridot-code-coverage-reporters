@@ -1,0 +1,30 @@
+{
+  "name": "peridot-php/code-coverage",
+  "description": "Code covereage reporters for Peridot PHP.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Austin Morris",
+      "email": "austin.morris@gmail.com"
+    },
+    {
+      "name": "Brian Scaturro",
+      "email": "scaturrob@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:peridot-php/peridot.git"
+    }
+  ],
+  "require": {
+    "peridot-php/peridot": "dev-develop",
+    "phpunit/php-code-coverage": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Peridot\\CodeCoverage\\": "src/"
+    }
+  }
+}
