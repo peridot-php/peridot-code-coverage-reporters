@@ -1,5 +1,5 @@
 {
-  "name": "peridot-php/code-coverage",
+  "name": "peridot-php/code-coverage-reporters",
   "description": "Code coverage reporters for Peridot PHP.",
   "license": "MIT",
   "authors": [
