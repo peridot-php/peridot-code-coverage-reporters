@@ -1,6 +1,7 @@
 <?php
 
 use Evenement\EventEmitterInterface;
+use Peridot\CodeCoverage\Reporter\AbstractCodeCoverageReporter;
 use Peridot\Reporter\ReporterFactory;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -9,7 +10,7 @@ use Symfony\Component\Console\Input\InputInterface;
  *
  */
 return function(EventEmitterInterface $emitter) {
-    $emitter->on('peridot.reporters', function(InputInterface $input, ReporterFactory $reporterFactory) {
+    $emitter->on('peridot.reporters', function (InputInterface $input, ReporterFactory $reporterFactory) {
         $reporterFactory->register(
             'clover-code-coverage',
             'Code coverage with a PHP_CodeCoverage style Clover report',
@@ -45,5 +46,10 @@ return function(EventEmitterInterface $emitter) {
             'Code coverage with a PHP_CodeCoverage style XML report',
             'Peridot\CodeCoverage\Reporter\XMLCodeCoverageReporter'
         );
+    });
+
+    $emitter->on('code-coverage.start', function (AbstractCodeCoverageReporter $reporter) {
+        $reporter->addDirectoryToWhitelist(__DIR__ . '/specs');
+        $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
     });
 };
