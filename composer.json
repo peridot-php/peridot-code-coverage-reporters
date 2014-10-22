@@ -12,14 +12,8 @@
       "email": "scaturrob@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:peridot-php/peridot.git"
-    }
-  ],
   "require": {
-    "peridot-php/peridot": "dev-develop",
+    "peridot-php/peridot": "1.*",
     "phpunit/php-code-coverage": "2.*"
   },
   "autoload": {
