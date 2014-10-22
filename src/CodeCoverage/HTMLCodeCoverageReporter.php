@@ -1,12 +1,12 @@
 <?php
 
-namespace Peridot\CodeCoverage\Reporter;
+namespace Peridot\Reporter\CodeCoverage;
 
 use PHP_CodeCoverage_Report_HTML;
 
 /**
  * Class HTMLCodeCoverageReporter
- * @package Peridot\CodeCoverage
+ * @package Peridot\Reporter\CodeCoverage
  */
 class HTMLCodeCoverageReporter extends AbstractCodeCoverageReporter
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Peridot\CodeCoverage\Reporter;
+namespace Peridot\Reporter\CodeCoverage;
 
 use PHP_CodeCoverage_Report_Crap4j;
 
 /**
  * Class Crap4JCodeCoverageReporter
- * @package Peridot\CodeCoverage\Reporter
+ * @package Peridot\Reporter\CodeCoverage
  */
 class Crap4JCodeCoverageReporter extends AbstractCodeCoverageReporter
 {

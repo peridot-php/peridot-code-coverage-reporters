@@ -1,6 +1,6 @@
 <?php
 
-namespace Peridot\CodeCoverage;
+namespace Peridot\Reporter\CodeCoverage;
 
 use Evenement\EventEmitterInterface;
 use Peridot\Reporter\ReporterFactory;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class Plugin
- * @package Peridot\CodeCoverage
+ * @package Peridot\Reporter\CodeCoverage
  */
 class Plugin
 {

@@ -1,5 +1,5 @@
 {
-  "name": "peridot-php/code-coverage-reporters",
+  "name": "peridot-php/peridot-code-coverage-reporters",
   "description": "Code coverage reporters for Peridot PHP.",
   "license": "MIT",
   "authors": [
@@ -12,19 +12,13 @@
       "email": "scaturrob@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:peridot-php/peridot.git"
-    }
-  ],
   "require": {
-    "peridot-php/peridot": "dev-develop",
+    "peridot-php/peridot": "1.*",
     "phpunit/php-code-coverage": "2.*"
   },
   "autoload": {
     "psr-4": {
-      "Peridot\\CodeCoverage\\": "src/"
+      "Peridot\\Reporter\\": "src/"
     }
   }
 }

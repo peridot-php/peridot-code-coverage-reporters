@@ -1,7 +1,7 @@
 <?php
 
 use Evenement\EventEmitter;
-use Peridot\CodeCoverage\Plugin;
+use Peridot\Reporter\CodeCoverage\Plugin;
 use Peridot\Configuration;
 use Peridot\Reporter\ReporterFactory;
 use Symfony\Component\Console\Input\ArgvInput;

@@ -1,7 +1,7 @@
 <?php
 
 use Evenement\EventEmitterInterface;
-use Peridot\CodeCoverage\Plugin;
+use Peridot\Reporter\CodeCoverage\Plugin;
 
 /**
  * Configure peridot.
