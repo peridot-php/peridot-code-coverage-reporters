@@ -35,17 +35,8 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
         $this->filter = new PHP_CodeCoverage_Filter();
         $this->coverage = new PHP_CodeCoverage(null, $this->filter);
 
-        $this->eventEmitter->on('runner.start', function() {
-            $this->eventEmitter->emit('code-coverage.start', [$this]);
-            $this->coverage->start('code-coverage');
-        });
-
-        $this->eventEmitter->on('runner.end', function() {
-            $this->coverage->stop();
-
-            $this->getCoverageReporter()->process($this->coverage, $this->getReportPath());
-            $this->eventEmitter->emit('code-coverage.end', [$this]);
-        });
+        $this->eventEmitter->on('runner.start', [$this, 'onRunnerStart']);
+        $this->eventEmitter->on('runner.end', [$this, 'onRunnerEnd']);
     }
 
     /**
@@ -132,6 +123,26 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
      * @return string
      */
     abstract public function getReportPath();
+
+    /**
+     * Handle the runner.end event.
+     */
+    public function onRunnerEnd()
+    {
+        $this->coverage->stop();
+
+        $this->getCoverageReporter()->process($this->coverage, $this->getReportPath());
+        $this->eventEmitter->emit('code-coverage.end', [$this]);
+    }
+
+    /**
+     * Handle the runner.start event.
+     */
+    public function onRunnerStart()
+    {
+        $this->eventEmitter->emit('code-coverage.start', [$this]);
+        $this->coverage->start('code-coverage');
+    }
 
     /**
      * Create the desired code coverage reporter.
