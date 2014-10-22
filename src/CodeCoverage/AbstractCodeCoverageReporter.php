@@ -1,6 +1,6 @@
 <?php
 
-namespace Peridot\CodeCoverage\Reporter;
+namespace Peridot\Reporter\CodeCoverage;
 
 use Peridot\Reporter\AbstractBaseReporter;
 use PHP_CodeCoverage;
@@ -8,7 +8,7 @@ use PHP_CodeCoverage_Filter;
 
 /**
  * Class AbstractCodeCoverageReporter
- * @package Peridot\CodeCoverage\Reporter
+ * @package Peridot\Reporter\CodeCoverage
  */
 abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
 {

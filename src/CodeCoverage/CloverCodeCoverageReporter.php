@@ -1,12 +1,12 @@
 <?php
 
-namespace Peridot\CodeCoverage\Reporter;
+namespace Peridot\Reporter\CodeCoverage;
 
 use PHP_CodeCoverage_Report_Clover;
 
 /**
  * Class CloverCodeCoverageReporter
- * @package Peridot\CodeCoverage\Reporter
+ * @package Peridot\Reporter\CodeCoverage
  */
 class CloverCodeCoverageReporter extends AbstractCodeCoverageReporter
 {

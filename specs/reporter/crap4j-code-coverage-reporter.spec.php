@@ -1,8 +1,8 @@
 <?php
 
 use Evenement\EventEmitter;
-use Peridot\CodeCoverage\Reporter\Crap4JCodeCoverageReporter;
 use Peridot\Configuration;
+use Peridot\Reporter\CodeCoverage\Crap4JCodeCoverageReporter;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('Crap4JCodeCoverageReporter', function () {

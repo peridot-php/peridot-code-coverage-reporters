@@ -1,8 +1,8 @@
 <?php
 
 use Evenement\EventEmitter;
-use Peridot\CodeCoverage\Reporter\XMLCodeCoverageReporter;
 use Peridot\Configuration;
+use Peridot\Reporter\CodeCoverage\XMLCodeCoverageReporter;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('XMLCodeCoverageReporter', function () {

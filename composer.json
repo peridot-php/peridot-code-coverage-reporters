@@ -1,5 +1,5 @@
 {
-  "name": "peridot-php/code-coverage",
+  "name": "peridot-php/peridot-code-coverage-reporters",
   "description": "Code coverage reporters for Peridot PHP.",
   "license": "MIT",
   "authors": [
@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Peridot\\CodeCoverage\\": "src/"
+      "Peridot\\Reporter\\": "src/"
     }
   }
 }
