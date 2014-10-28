@@ -13,10 +13,7 @@ class CloverCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * {@inheritdoc}
      */
-    public function getReportPath()
-    {
-        return getcwd() . '/code-coverage-report/clover.xml';
-    }
+    protected $reportPath = 'code-coverage-report/clover.xml';
 
     /**
      * Create the desired code coverage reporter.

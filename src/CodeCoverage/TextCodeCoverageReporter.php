@@ -11,12 +11,9 @@ use PHP_CodeCoverage_Report_Text;
 class TextCodeCoverageReporter extends AbstractCodeCoverageReporter
 {
     /**
-     * {@inheritdoc}
+     * @var boolean
      */
-    public function getReportPath()
-    {
-        return false;
-    }
+    protected $reportPath = false;
 
     /**
      * Create the desired code coverage reporter.

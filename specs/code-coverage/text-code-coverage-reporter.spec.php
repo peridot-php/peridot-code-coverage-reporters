@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('TextCodeCoverageReporter', function () {
 
-    beforeEach(function() {
+    beforeEach(function () {
         $this->reporter = new TextCodeCoverageReporter(
             new Configuration(),
             new ConsoleOutput(),

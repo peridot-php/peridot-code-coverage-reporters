@@ -18,14 +18,19 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
     protected $coverage;
 
     /**
+     * @var mixed
+     */
+    protected $coverageReporter;
+
+    /**
      * @var \PHP_CodeCoverage_Filter
      */
     protected $filter;
 
     /**
-     * @var mixed
+     * @var string
      */
-    protected $coverageReporter;
+    protected $reportPath;
 
     /**
      * {@inheritdoc}
@@ -45,10 +50,12 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
      * @param string $directory
      * @param string $suffix
      * @param string $prefix
+     * @return $this
      */
     public function addDirectoryToBlacklist($directory, $suffix = '.php', $prefix = '')
     {
         $this->filter->addDirectoryToBlacklist($directory, $suffix, $prefix);
+        return $this;
     }
 
     /**
@@ -57,50 +64,60 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
      * @param string $directory
      * @param string $suffix
      * @param string $prefix
+     * @return $this
      */
     public function addDirectoryToWhitelist($directory, $suffix = '.php', $prefix = '')
     {
         $this->filter->addDirectoryToWhitelist($directory, $suffix, $prefix);
+        return $this;
     }
 
     /**
      * Add a file to the blacklist.
      *
      * @param string $filename
+     * @return $this
      */
     public function addFileToBlacklist($filename)
     {
         $this->filter->addFileToBlacklist($filename);
+        return $this;
     }
 
     /**
      * Add a file to the whitelist.
      *
      * @param string $filename
+     * @return $this
      */
     public function addFileToWhitelist($filename)
     {
         $this->filter->addFileToWhitelist($filename);
+        return $this;
     }
 
     /**
      * Add files to the blacklist.
      *
      * @param array $files
+     * @return $this
      */
     public function addFilesToBlacklist(array $files)
     {
         $this->filter->addFilesToBlacklist($files);
+        return $this;
     }
 
     /**
      * Add files to the whitelist.
      *
      * @param array $files
+     * @return $this
      */
     public function addFilesToWhitelist(array $files)
     {
         $this->filter->addFilesToWhitelist($files);
+        return $this;
     }
 
     /**
@@ -116,13 +133,6 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
 
         return $this->coverageReporter;
     }
-
-    /**
-     * Return the desired code coverage report path.
-     *
-     * @return string
-     */
-    abstract public function getReportPath();
 
     /**
      * Handle the runner.end event.
@@ -142,6 +152,24 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
     {
         $this->eventEmitter->emit('code-coverage.start', [$this]);
         $this->coverage->start('code-coverage');
+    }
+
+    /**
+     * @return string
+     */
+    public function getReportPath()
+    {
+        return $this->reportPath;
+    }
+
+    /**
+     * @param string $reportPath
+     * @return $this
+     */
+    public function setReportPath($reportPath)
+    {
+        $this->reportPath = $reportPath;
+        return $this;
     }
 
     /**

@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('HTMLCodeCoverageReporter', function () {
 
-    beforeEach(function() {
+    beforeEach(function () {
         $this->reporter = new HTMLCodeCoverageReporter(
             new Configuration(),
             new ConsoleOutput(),
@@ -19,8 +19,8 @@ describe('HTMLCodeCoverageReporter', function () {
         assert($this->reporter->getCoverageReporter() instanceof PHP_CodeCoverage_Report_HTML);
     });
 
-    it('should define the path to the output directory', function () {
-        assert($this->reporter->getReportPath() == getcwd() . '/code-coverage-report');
+    it('should define the default path to the output directory', function () {
+        assert($this->reporter->getReportPath() == 'code-coverage-report');
     });
 
 });

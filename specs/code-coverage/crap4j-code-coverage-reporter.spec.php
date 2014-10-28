@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('Crap4JCodeCoverageReporter', function () {
 
-    beforeEach(function() {
+    beforeEach(function () {
         $this->reporter = new Crap4JCodeCoverageReporter(
             new Configuration(),
             new ConsoleOutput(),
@@ -19,8 +19,8 @@ describe('Crap4JCodeCoverageReporter', function () {
         assert($this->reporter->getCoverageReporter() instanceof PHP_CodeCoverage_Report_Crap4j);
     });
 
-    it('should define the path to the crap4j.xml output file', function () {
-        assert($this->reporter->getReportPath() == getcwd() . '/code-coverage-report/crap4j.xml');
+    it('should define the default path to the crap4j.xml output file', function () {
+        assert($this->reporter->getReportPath() == 'code-coverage-report/crap4j.xml');
     });
 
 });

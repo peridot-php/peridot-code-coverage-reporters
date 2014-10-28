@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('PHPCodeCoverageReporter', function () {
 
-    beforeEach(function() {
+    beforeEach(function () {
         $this->reporter = new PHPCodeCoverageReporter(
             new Configuration(),
             new ConsoleOutput(),
@@ -20,7 +20,7 @@ describe('PHPCodeCoverageReporter', function () {
     });
 
     it('should define the path to the coverage.php output file', function () {
-        assert($this->reporter->getReportPath() == getcwd() . '/code-coverage-report/code-coverage.php');
+        assert($this->reporter->getReportPath() == 'code-coverage-report/code-coverage.php');
     });
 
 });
