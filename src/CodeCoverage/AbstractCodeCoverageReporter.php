@@ -140,9 +140,15 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
     public function onRunnerEnd()
     {
         $this->coverage->stop();
+        $this->footer();
+
+        $this->output->write('Generating code coverage report... ');
 
         $this->getCoverageReporter()->process($this->coverage, $this->getReportPath());
         $this->eventEmitter->emit('code-coverage.end', [$this]);
+
+        $this->output->write('Done!');
+        $this->output->writeln('');
     }
 
     /**
