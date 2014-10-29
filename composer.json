@@ -13,8 +13,8 @@
     }
   ],
   "require": {
-    "peridot-php/peridot": "1.*",
-    "phpunit/php-code-coverage": "2.*"
+    "peridot-php/peridot": "~1.0",
+    "phpunit/php-code-coverage": "~2.0"
   },
   "autoload": {
     "psr-4": {
