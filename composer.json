@@ -16,6 +16,8 @@
     "peridot-php/peridot": "~1.0",
     "phpunit/php-code-coverage": "~2.0"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Peridot\\Reporter\\": "src/"
