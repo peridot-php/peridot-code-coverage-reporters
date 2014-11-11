@@ -36,7 +36,7 @@ To make code coverage reporters available, simply register a new `CodeCoverageRe
 (new CodeCoverageReporters($eventEmitter))->register();
 ```
 
-By default, peridot will look for all tests in the current working directory.  Since we don't want to have to specify `--path path/to/specs` every time we run peridot, we set a default path:
+By default, peridot will look for all tests in the current working directory.  Since we don't want to have to specify the `specs/` every time we run peridot, we set a default path:
 
 ```php
 $eventEmitter->on('peridot.start', function (\Peridot\Console\Environment $environment) {
