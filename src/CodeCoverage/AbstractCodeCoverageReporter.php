@@ -2,9 +2,10 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use Peridot\Reporter\AbstractBaseReporter;
 use PHP_CodeCoverage;
 use PHP_CodeCoverage_Filter;
+use Peridot\Core\TestInterface;
+use Peridot\Reporter\AbstractBaseReporter;
 
 /**
  * Class AbstractCodeCoverageReporter
@@ -42,6 +43,8 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
 
         $this->eventEmitter->on('runner.start', [$this, 'onRunnerStart']);
         $this->eventEmitter->on('runner.end', [$this, 'onRunnerEnd']);
+        $this->eventEmitter->on('test.start', [$this, 'onTestStart']);
+        $this->eventEmitter->on('test.end', [$this, 'onTestEnd']);
     }
 
     /**
@@ -139,7 +142,6 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
      */
     public function onRunnerEnd()
     {
-        $this->coverage->stop();
         $this->footer();
 
         $this->output->write('Generating code coverage report... ');
@@ -157,7 +159,22 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
     public function onRunnerStart()
     {
         $this->eventEmitter->emit('code-coverage.start', [$this]);
-        $this->coverage->start('code-coverage');
+    }
+
+    /**
+     * Handle the test.start event.
+     */
+    public function onTestStart(TestInterface $test)
+    {
+        $this->coverage->start($test->getTitle());
+    }
+
+    /**
+     * Handle the test.end event.
+     */
+    public function onTestEnd()
+    {
+        $this->coverage->stop();
     }
 
     /**
