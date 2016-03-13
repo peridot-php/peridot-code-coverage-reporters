@@ -45,6 +45,7 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
         $this->eventEmitter->on('runner.end', [$this, 'onRunnerEnd']);
         $this->eventEmitter->on('test.start', [$this, 'onTestStart']);
         $this->eventEmitter->on('test.end', [$this, 'onTestEnd']);
+        $this->eventEmitter->on('test.pending', [$this, 'onTestEnd']);
     }
 
     /**
