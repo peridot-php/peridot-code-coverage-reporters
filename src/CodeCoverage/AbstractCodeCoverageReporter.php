@@ -147,11 +147,11 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
 
         $this->output->write('Generating code coverage report... ');
 
-        $this->getCoverageReporter()->process($this->coverage, $this->getReportPath());
+        $output = $this->getCoverageReporter()->process($this->coverage, $this->getReportPath());
         $this->eventEmitter->emit('code-coverage.end', [$this]);
 
-        $this->output->write('Done!');
-        $this->output->writeln('');
+        $this->output->writeln('Done!');
+        $this->output->writeln($output);
     }
 
     /**
