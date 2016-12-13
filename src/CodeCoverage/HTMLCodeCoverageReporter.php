@@ -3,6 +3,7 @@
 namespace Peridot\Reporter\CodeCoverage;
 
 use PHP_CodeCoverage_Report_HTML;
+use Peridot\Console\Version;
 
 /**
  * Class HTMLCodeCoverageReporter
@@ -22,6 +23,13 @@ class HTMLCodeCoverageReporter extends AbstractCodeCoverageReporter
      */
     protected function createCoverageReporter()
     {
-        return new PHP_CodeCoverage_Report_HTML();
+        $name = Version::NAME;
+        $version = Version::NUMBER;
+
+        return new PHP_CodeCoverage_Report_HTML(
+            50,
+            90,
+            " and <a href=\"http://peridot-php.github.io/\">$name $version</a>"
+        );
     }
 }
