@@ -1,5 +1,4 @@
-peridot-code-coverage-reporters
-===============================
+# Peridot Code Coverage Reporters
 
 [![Packagist Version](https://img.shields.io/packagist/v/peridot-php/peridot-code-coverage-reporters.svg?style=flat-square "Packagist Version")](https://packagist.org/packages/peridot-php/peridot-code-coverage-reporters)
 [![Build Status](https://img.shields.io/travis/peridot-php/peridot-code-coverage-reporters/master.svg?style=flat-square "Build Status")](https://travis-ci.org/peridot-php/peridot-code-coverage-reporters)
@@ -32,7 +31,7 @@ return function (EventEmitterInterface $eventEmitter) {
     });
 
     $eventEmitter->on('code-coverage.start', function (AbstractCodeCoverageReporter $reporter) {
-        $reporter->addDirectoryToWhitelist(__DIR__ . '/src')->addDirectoryToWhitelist(__DIR__ . '/specs');
+        $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
     });
 };
 ```
@@ -55,7 +54,7 @@ Since we only want code coverage reported for our source, we whitelist the `src`
 
 ```php
 $eventEmitter->on('code-coverage.start', function (AbstractCodeCoverageReporter $reporter) {
-    $reporter->addDirectoryToWhitelist(__DIR__ . '/src')->addDirectoryToWhitelist(__DIR__ . '/specs');
+    $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
 });
 ```
 
