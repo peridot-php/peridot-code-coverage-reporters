@@ -2,7 +2,6 @@
 
 [![Packagist Version](https://img.shields.io/packagist/v/peridot-php/peridot-code-coverage-reporters.svg?style=flat-square "Packagist Version")](https://packagist.org/packages/peridot-php/peridot-code-coverage-reporters)
 [![Build Status](https://img.shields.io/travis/peridot-php/peridot-code-coverage-reporters/master.svg?style=flat-square "Build Status")](https://travis-ci.org/peridot-php/peridot-code-coverage-reporters)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/peridot/peridot-code-coverage-reporters/master.svg?label=windows&style=flat-square "Windows Build Status")](https://ci.appveyor.com/project/peridot/peridot-code-coverage-reporters)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/peridot-php/peridot-code-coverage-reporters.svg?style=flat-square "Scrutinizer Code Quality")](https://scrutinizer-ci.com/g/peridot-php/peridot-code-coverage-reporters/?branch=master)
 [![Codecov Coverage](https://img.shields.io/codecov/c/github/peridot-php/peridot-code-coverage-reporters/master.svg?style=flat-square "Codecov Coverage")](https://codecov.io/gh/peridot-php/peridot-code-coverage-reporters)
 [![Gitter Chat](https://img.shields.io/gitter/room/peridot-php/lobby.svg?style=flat-square "Gitter Chat")](https://gitter.im/peridot-php/lobby)
