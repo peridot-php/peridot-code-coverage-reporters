@@ -2,10 +2,10 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use PHP_CodeCoverage;
-use PHP_CodeCoverage_Filter;
 use Peridot\Core\TestInterface;
 use Peridot\Reporter\AbstractBaseReporter;
+use SebastianBergmann\CodeCoverage\CodeCoverage;
+use SebastianBergmann\CodeCoverage\Filter;
 
 /**
  * Class AbstractCodeCoverageReporter
@@ -14,7 +14,7 @@ use Peridot\Reporter\AbstractBaseReporter;
 abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
 {
     /**
-     * @var \PHP_CodeCoverage
+     * @var CodeCoverage
      */
     protected $coverage;
 
@@ -24,7 +24,7 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
     protected $coverageReporter;
 
     /**
-     * @var \PHP_CodeCoverage_Filter
+     * @var Filter
      */
     protected $filter;
 
@@ -38,8 +38,8 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
      */
     public function init()
     {
-        $this->filter = new PHP_CodeCoverage_Filter();
-        $this->coverage = new PHP_CodeCoverage(null, $this->filter);
+        $this->filter = new Filter();
+        $this->coverage = new CodeCoverage(null, $this->filter);
 
         $this->eventEmitter->on('runner.start', [$this, 'onRunnerStart']);
         $this->eventEmitter->on('runner.end', [$this, 'onRunnerEnd']);

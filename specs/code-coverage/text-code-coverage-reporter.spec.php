@@ -3,6 +3,7 @@
 use Evenement\EventEmitter;
 use Peridot\Configuration;
 use Peridot\Reporter\CodeCoverage\TextCodeCoverageReporter;
+use SebastianBergmann\CodeCoverage\Report\Text;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('TextCodeCoverageReporter', function () {
@@ -16,7 +17,7 @@ describe('TextCodeCoverageReporter', function () {
     });
 
     it('should create an text style php code coverage reporter', function () {
-        assert($this->reporter->getCoverageReporter() instanceof PHP_CodeCoverage_Report_Text);
+        assert($this->reporter->getCoverageReporter() instanceof Text);
     });
 
     it('should define the report path as false', function () {

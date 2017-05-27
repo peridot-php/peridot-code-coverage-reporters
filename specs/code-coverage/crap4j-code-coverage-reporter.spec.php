@@ -3,6 +3,7 @@
 use Evenement\EventEmitter;
 use Peridot\Configuration;
 use Peridot\Reporter\CodeCoverage\Crap4JCodeCoverageReporter;
+use SebastianBergmann\CodeCoverage\Report\Crap4j;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('Crap4JCodeCoverageReporter', function () {
@@ -16,7 +17,7 @@ describe('Crap4JCodeCoverageReporter', function () {
     });
 
     it('should create a crap4j style php code coverage reporter', function () {
-        assert($this->reporter->getCoverageReporter() instanceof PHP_CodeCoverage_Report_Crap4j);
+        assert($this->reporter->getCoverageReporter() instanceof Crap4j);
     });
 
     it('should define the default path to the crap4j.xml output file', function () {

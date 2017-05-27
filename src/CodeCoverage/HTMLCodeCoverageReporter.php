@@ -2,8 +2,8 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use PHP_CodeCoverage_Report_HTML;
 use Peridot\Console\Version;
+use SebastianBergmann\CodeCoverage\Report\Html\Facade;
 
 /**
  * Class HTMLCodeCoverageReporter
@@ -19,14 +19,14 @@ class HTMLCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * Create the desired code coverage reporter.
      *
-     * @return \PHP_CodeCoverage_Report_HTML
+     * @return Facade
      */
     protected function createCoverageReporter()
     {
         $name = Version::NAME;
         $version = Version::NUMBER;
 
-        return new PHP_CodeCoverage_Report_HTML(
+        return new Facade(
             50,
             90,
             " and <a href=\"http://peridot-php.github.io/\">$name $version</a>"

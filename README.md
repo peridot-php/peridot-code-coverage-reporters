@@ -6,54 +6,72 @@
 [![Codecov Coverage](https://img.shields.io/codecov/c/github/peridot-php/peridot-code-coverage-reporters/master.svg?style=flat-square "Codecov Coverage")](https://codecov.io/gh/peridot-php/peridot-code-coverage-reporters)
 [![Gitter Chat](https://img.shields.io/gitter/room/peridot-php/lobby.svg?style=flat-square "Gitter Chat")](https://gitter.im/peridot-php/lobby)
 
-[PHP_CodeCoverage](https://github.com/sebastianbergmann/php-code-coverage) style code coverage reporters can be easily added to any project testing with peridot!
+## Installation
 
-The repository's [peridot.php](https://github.com/peridot-php/peridot-code-coverage-reporters/blob/master/peridot.php) file provides a good example to get started with code coverage reporting:
+Add this package as a dependency:
+
+    composer require --dev peridot-php/peridot-code-coverage-reporters
+
+Then register the reporters in your `peridot.php` configuration:
 
 ```php
-<?php
-
 use Evenement\EventEmitterInterface;
-use Peridot\Reporter\CodeCoverage\AbstractCodeCoverageReporter;
 use Peridot\Reporter\CodeCoverageReporters;
+use Peridot\Reporter\ReporterInterface;
 
-/**
- * Configure peridot.
- *
- * @param EventEmitterInterface $eventEmitter
- */
-return function (EventEmitterInterface $eventEmitter) {
-    (new CodeCoverageReporters($eventEmitter))->register();
+return function (EventEmitterInterface $emitter) {
+    $coverage = new CodeCoverageReporters($emitter);
+    $coverage->register();
 
-    $eventEmitter->on('peridot.start', function (\Peridot\Console\Environment $environment) {
-        $environment->getDefinition()->getArgument('path')->setDefault('specs');
-    });
-
-    $eventEmitter->on('code-coverage.start', function (AbstractCodeCoverageReporter $reporter) {
+    $emitter->on('code-coverage.start', function (ReporterInterface $reporter) {
         $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
     });
 };
 ```
 
-To make code coverage reporters available, simply register a new `CodeCoverageReporters` object:
+## Usage
 
-```php
-(new CodeCoverageReporters($eventEmitter))->register();
-```
+This package provides several *Peridot* reporters that can be used via the
+`--reporter` option:
 
-By default, peridot will look for all tests in the current working directory.  Since we don't want to have to specify the `specs/` every time we run peridot, we set a default path:
+- `html-code-coverage`
+- `text-code-coverage`
+- `clover-code-coverage`
+- `xml-code-coverage`
+- `crap4j-code-coverage`
+- `php-code-coverage`
 
-```php
-$eventEmitter->on('peridot.start', function (\Peridot\Console\Environment $environment) {
-    $environment->getDefinition()->getArgument('path')->setDefault('specs');
-});
-```
+These reporters are all driven by [php-code-coverage], which requires the use of
+either the `phpdbg` executable, or the `xdebug` PHP extension in order to
+produce coverage reports.
 
-Since we only want code coverage reported for our source, we whitelist the `src` directory:
+### With `phpdbg`
 
-```php
-$eventEmitter->on('code-coverage.start', function (AbstractCodeCoverageReporter $reporter) {
-    $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
-});
-```
+Where available, `phpdbg` is generally recommended for faster coverage
+reporting. Most system-level package management tools should be able to install
+a version of `phpdbg` with minimal hassle. Under [Homebrew], for example,
+`phpdbg` can be installed like so:
 
+    brew tap homebrew/homebrew-php && brew install php71 --with-phpdbg
+
+Once installed, `phpdbg -qrr` can be used in place of `php` when executing
+scripts, including the `peridot` binary, allowing code coverage to be generated:
+
+    phpdbr -qrr vendor/bin/peridot --reporter spec --reporter html-code-coverage
+
+The above command will print spec-style output while the suite runs, and
+generate an HTML coverage report once the suite has completed.
+
+### With `xdebug`
+
+Use of `xdebug` is no longer recommended, because of the significantly worse
+performance compared to `phpdbg`. If `phpdbg` is not an option, simply make sure
+the `xdebug` extension is enabled when running `peridot`:
+
+    vendor/bin/peridot --reporter spec --reporter html-code-coverage
+
+The above command will print spec-style output while the suite runs, and
+generate an HTML coverage report once the suite has completed.
+
+[homebrew]: https://brew.sh/
+[php-code-coverage]: https://github.com/sebastianbergmann/php-code-coverage

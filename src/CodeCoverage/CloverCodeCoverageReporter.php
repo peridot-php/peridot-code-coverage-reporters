@@ -2,7 +2,7 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use PHP_CodeCoverage_Report_Clover;
+use SebastianBergmann\CodeCoverage\Report\Clover;
 
 /**
  * Class CloverCodeCoverageReporter
@@ -18,10 +18,10 @@ class CloverCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * Create the desired code coverage reporter.
      *
-     * @return \PHP_CodeCoverage_Report_Clover
+     * @return Clover
      */
     protected function createCoverageReporter()
     {
-        return new PHP_CodeCoverage_Report_Clover();
+        return new Clover();
     }
 }

@@ -3,6 +3,7 @@
 use Evenement\EventEmitter;
 use Peridot\Configuration;
 use Peridot\Reporter\CodeCoverage\CloverCodeCoverageReporter;
+use SebastianBergmann\CodeCoverage\Report\Clover;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('CloverCodeCoverageReporter', function () {
@@ -16,7 +17,7 @@ describe('CloverCodeCoverageReporter', function () {
     });
 
     it('should create a clover style php code coverage reporter', function () {
-        assert($this->reporter->getCoverageReporter() instanceof PHP_CodeCoverage_Report_Clover);
+        assert($this->reporter->getCoverageReporter() instanceof Clover);
     });
 
     it('should define the default path to the clover.xml output file', function () {

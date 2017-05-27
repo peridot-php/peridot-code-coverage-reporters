@@ -16,10 +16,10 @@ ifeq ($(TRAVIS_PHP_VERSION), nightly)
 else
 ifeq ($(TRAVIS_PHP_VERSION), $(filter $(TRAVIS_PHP_VERSION), 7.0 7.1))
 	phpdbg --version
-	phpdbg -qrr -d memory_limit=512M vendor/bin/peridot --reporter clover-code-coverage specs
+	phpdbg -qrr -d memory_limit=512M vendor/bin/peridot --reporter spec --reporter clover-code-coverage specs
 else
 	php --version
-	vendor/bin/peridot --reporter clover-code-coverage specs
+	vendor/bin/peridot --reporter spec --reporter clover-code-coverage specs
 endif
 endif
 

@@ -2,7 +2,8 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use PHP_CodeCoverage_Report_XML;
+use Peridot\Console\Version;
+use SebastianBergmann\CodeCoverage\Report\Xml\Facade;
 
 /**
  * Class XMLCodeCoverageReporter
@@ -18,10 +19,10 @@ class XMLCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * Create the desired code coverage reporter.
      *
-     * @return \PHP_CodeCoverage_Report_XML
+     * @return Facade
      */
     protected function createCoverageReporter()
     {
-        return new PHP_CodeCoverage_Report_XML();
+        return new Facade(Version::NUMBER);
     }
 }

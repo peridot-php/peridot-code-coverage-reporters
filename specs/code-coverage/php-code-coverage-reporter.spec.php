@@ -3,6 +3,7 @@
 use Evenement\EventEmitter;
 use Peridot\Configuration;
 use Peridot\Reporter\CodeCoverage\PHPCodeCoverageReporter;
+use SebastianBergmann\CodeCoverage\Report\PHP;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 describe('PHPCodeCoverageReporter', function () {
@@ -16,7 +17,7 @@ describe('PHPCodeCoverageReporter', function () {
     });
 
     it('should create a php style php code coverage reporter', function () {
-        assert($this->reporter->getCoverageReporter() instanceof PHP_CodeCoverage_Report_PHP);
+        assert($this->reporter->getCoverageReporter() instanceof PHP);
     });
 
     it('should define the path to the coverage.php output file', function () {

@@ -2,7 +2,7 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use PHP_CodeCoverage_Report_Crap4j;
+use SebastianBergmann\CodeCoverage\Report\Crap4j;
 
 /**
  * Class Crap4JCodeCoverageReporter
@@ -18,10 +18,10 @@ class Crap4JCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * Create the desired code coverage reporter.
      *
-     * @return \PHP_CodeCoverage_Report_Crap4j
+     * @return Crap4j
      */
     protected function createCoverageReporter()
     {
-        return new PHP_CodeCoverage_Report_Crap4j();
+        return new Crap4j();
     }
 }

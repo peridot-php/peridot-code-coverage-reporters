@@ -2,8 +2,7 @@
 
 namespace Peridot\Reporter\CodeCoverage;
 
-use PHP_CodeCoverage;
-use PHP_CodeCoverage_Report_PHP;
+use SebastianBergmann\CodeCoverage\Report\PHP;
 
 /**
  * Class PHPCodeCoverageReporter
@@ -19,10 +18,10 @@ class PHPCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * Create the desired code coverage reporter.
      *
-     * @return \PHP_CodeCoverage_Report_PHP
+     * @return PHP
      */
     protected function createCoverageReporter()
     {
-        return new PHP_CodeCoverage_Report_PHP();
+        return new PHP();
     }
 }
