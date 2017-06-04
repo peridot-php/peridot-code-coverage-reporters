@@ -102,7 +102,7 @@ class CodeCoverageReporters
     {
         $environment->getDefinition()->option(
             'code-coverage-path',
-            null,
+            'coverage',
             InputOption::VALUE_REQUIRED,
             'Set the output directory for code coverage reporter'
         );

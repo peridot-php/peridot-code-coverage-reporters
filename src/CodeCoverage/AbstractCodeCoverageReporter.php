@@ -31,7 +31,7 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
     /**
      * @var string
      */
-    protected $reportPath;
+    protected $reportPath = 'coverage';
 
     /**
      * {@inheritdoc}
@@ -143,8 +143,6 @@ abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
      */
     public function onRunnerEnd()
     {
-        $this->footer();
-
         $this->output->write('Generating code coverage report... ');
 
         $this->getCoverageReporter()->process($this->coverage, $this->getReportPath());

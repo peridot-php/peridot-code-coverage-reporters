@@ -13,7 +13,10 @@ class Crap4JCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * {@inheritdoc}
      */
-    protected $reportPath = 'code-coverage-report/crap4j.xml';
+    public function getReportPath()
+    {
+        return $this->reportPath . '/crap4j.xml';
+    }
 
     /**
      * Create the desired code coverage reporter.

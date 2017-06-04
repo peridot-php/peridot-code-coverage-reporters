@@ -21,7 +21,7 @@ describe('Crap4JCodeCoverageReporter', function () {
     });
 
     it('should define the default path to the crap4j.xml output file', function () {
-        assert($this->reporter->getReportPath() == 'code-coverage-report/crap4j.xml');
+        assert($this->reporter->getReportPath() == 'coverage/crap4j.xml');
     });
 
 });

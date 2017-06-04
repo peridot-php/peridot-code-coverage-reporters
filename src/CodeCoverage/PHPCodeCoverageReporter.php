@@ -13,7 +13,10 @@ class PHPCodeCoverageReporter extends AbstractCodeCoverageReporter
     /**
      * {@inheritdoc}
      */
-    protected $reportPath = 'code-coverage-report/code-coverage.php';
+    public function getReportPath()
+    {
+        return $this->reportPath . '/coverage.php';
+    }
 
     /**
      * Create the desired code coverage reporter.

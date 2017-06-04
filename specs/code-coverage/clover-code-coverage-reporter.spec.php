@@ -21,7 +21,7 @@ describe('CloverCodeCoverageReporter', function () {
     });
 
     it('should define the default path to the clover.xml output file', function () {
-        assert($this->reporter->getReportPath() == 'code-coverage-report/clover.xml');
+        assert($this->reporter->getReportPath() == 'coverage/clover.xml');
     });
 
 });

@@ -12,11 +12,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Facade;
 class HTMLCodeCoverageReporter extends AbstractCodeCoverageReporter
 {
     /**
-     * {@inheritdoc}
-     */
-    protected $reportPath = 'code-coverage-report';
-
-    /**
      * Create the desired code coverage reporter.
      *
      * @return Facade

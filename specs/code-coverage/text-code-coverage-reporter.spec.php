@@ -20,8 +20,4 @@ describe('TextCodeCoverageReporter', function () {
         assert($this->reporter->getCoverageReporter() instanceof Text);
     });
 
-    it('should define the report path as false', function () {
-        assert($this->reporter->getReportPath() == false);
-    });
-
 });

@@ -11,11 +11,6 @@ use SebastianBergmann\CodeCoverage\Report\Text;
 class TextCodeCoverageReporter extends AbstractCodeCoverageReporter
 {
     /**
-     * @var boolean
-     */
-    protected $reportPath = false;
-
-    /**
      * Handle the runner.end event.
      */
     public function onRunnerEnd()

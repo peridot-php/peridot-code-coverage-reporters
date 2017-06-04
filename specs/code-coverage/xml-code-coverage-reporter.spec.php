@@ -21,7 +21,7 @@ describe('XMLCodeCoverageReporter', function () {
     });
 
     it('should define the default path to the output directory', function () {
-        assert($this->reporter->getReportPath() == 'code-coverage-report');
+        assert($this->reporter->getReportPath() == 'coverage');
     });
 
 });
