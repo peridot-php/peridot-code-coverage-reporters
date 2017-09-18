@@ -16,14 +16,14 @@ Then register the reporters in your `peridot.php` configuration:
 
 ```php
 use Evenement\EventEmitterInterface;
+use Peridot\Reporter\CodeCoverage\CodeCoverageReporter;
 use Peridot\Reporter\CodeCoverageReporters;
-use Peridot\Reporter\ReporterInterface;
 
 return function (EventEmitterInterface $emitter) {
     $coverage = new CodeCoverageReporters($emitter);
     $coverage->register();
 
-    $emitter->on('code-coverage.start', function (ReporterInterface $reporter) {
+    $emitter->on('code-coverage.start', function (CodeCoverageReporter $reporter) {
         $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
     });
 };

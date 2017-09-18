@@ -4,7 +4,7 @@ test:
 
 coverage:
 	phpdbg --version
-	phpdbg -qrr -d memory_limit=512M vendor/bin/peridot --reporter html-code-coverage specs
+	phpdbg -qrr -d memory_limit=512M vendor/bin/peridot --reporter spec --reporter html-code-coverage specs
 
 open-coverage:
 	open code-coverage-report/index.html

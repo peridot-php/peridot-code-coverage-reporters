@@ -1,7 +1,7 @@
 <?php
 
 use Evenement\EventEmitterInterface;
-use Peridot\Reporter\CodeCoverage\AbstractCodeCoverageReporter;
+use Peridot\Reporter\CodeCoverage\CodeCoverageReporter;
 use Peridot\Reporter\CodeCoverageReporters;
 
 /**
@@ -16,7 +16,7 @@ return function (EventEmitterInterface $eventEmitter) {
         $environment->getDefinition()->getArgument('path')->setDefault('specs');
     });
 
-    $eventEmitter->on('code-coverage.start', function (AbstractCodeCoverageReporter $reporter) {
+    $eventEmitter->on('code-coverage.start', function (CodeCoverageReporter $reporter) {
         $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
     });
 };

@@ -11,7 +11,7 @@ use SebastianBergmann\CodeCoverage\Filter;
  * Class AbstractCodeCoverageReporter
  * @package Peridot\Reporter\CodeCoverage
  */
-abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter
+abstract class AbstractCodeCoverageReporter extends AbstractBaseReporter implements CodeCoverageReporter
 {
     /**
      * @var CodeCoverage

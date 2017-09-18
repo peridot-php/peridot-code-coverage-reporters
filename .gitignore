@@ -1,4 +1,3 @@
-code-coverage-report/
-vendor/
-.idea/
-composer.lock
+/composer.lock
+/coverage/
+/vendor/

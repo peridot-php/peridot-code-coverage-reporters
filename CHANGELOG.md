@@ -4,6 +4,10 @@
 
 - **[BC BREAK]** Dropped support for [php-code-coverage] < 4.x.
 - **[BC BREAK]** Added support for [php-code-coverage] 4.x and 5.x.
+- **[BC BREAK]** By default, coverage reports are now placed under `coverage`
+  instead of `code-coverage-report`.
+- **[NEW]** Introduced the `CodeCoverageReporter` interface for use in
+  configuration files.
 
 [php-code-coverage]: https://github.com/sebastianbergmann/php-code-coverage
 
