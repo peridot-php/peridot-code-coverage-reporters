@@ -1,6 +1,6 @@
 # Peridot Code Coverage Reporters Changelog
 
-## Next release
+## 3.0.0 (2017-09-18)
 
 - **[BC BREAK]** Dropped support for [php-code-coverage] < 4.x.
 - **[BC BREAK]** Added support for [php-code-coverage] 4.x and 5.x.
